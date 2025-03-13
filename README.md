@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Social Recipe Extractor 🧑‍🍳
 
-## Getting Started
+A modern web application that extracts recipes from social media cooking videos. Simply paste a YouTube, TikTok, or Instagram video URL, and get a beautifully formatted recipe with ingredients and step-by-step instructions.
 
-First, run the development server:
+![Recipe Extractor Screenshot](public/screenshot.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- 🎥 Extract recipes from YouTube videos (TikTok and Instagram coming soon)
+- 🎨 Modern UI with animated gradient background
+- 💫 Beautiful glass-morphism design
+- 📋 Copy recipes to clipboard
+- 🔄 Loading states with progress indicators
+- ⚠️ Error handling with retry options
+- 🤖 AI-powered recipe extraction using OpenAI
+- 📱 Fully responsive design
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- OpenAI API key
+- yt-dlp (for YouTube video processing)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/hisham86/social-recipe-extractor.git
+   cd social-recipe-extractor
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Install yt-dlp (for YouTube video processing):
+   ```bash
+   # macOS
+   brew install yt-dlp
+
+   # Linux
+   sudo apt install yt-dlp
+
+   # Windows (using chocolatey)
+   choco install yt-dlp
+   ```
+
+4. Create a `.env` file in the root directory:
+   ```env
+   # OpenAI API Key
+   OPENAI_API_KEY=your_openai_api_key_here
+
+   # Rate Limiting
+   MAX_REQUESTS_PER_MINUTE=10
+   ```
+
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🔧 Environment Variables
+
+| Variable | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `OPENAI_API_KEY` | Your OpenAI API key for recipe extraction | Yes | - |
+| `MAX_REQUESTS_PER_MINUTE` | Rate limiting for API requests | No | 10 |
+
+## 🏗️ Tech Stack
+
+- [Next.js 14](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [OpenAI API](https://openai.com/) - AI-powered recipe extraction
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) - YouTube video processing
+
+## 📝 API Routes
+
+### POST `/api/extract-recipe`
+
+Extract recipe from a video URL.
+
+**Request Body:**
+```json
+{
+  "url": "https://youtube.com/watch?v=..."
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Response:**
+```json
+{
+  "title": "Recipe Title",
+  "ingredients": ["ingredient 1", "ingredient 2"],
+  "instructions": ["step 1", "step 2"],
+  "source": "video_url"
+}
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚧 Upcoming Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [ ] TikTok video support
+- [ ] Instagram video support
+- [ ] Save recipes to favorites
+- [ ] Share recipes
+- [ ] User authentication
+- [ ] Recipe search functionality
+- [ ] Multiple language support
+- [ ] Dark/Light theme toggle
 
-## Learn More
+## 🤝 Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Deploy on Vercel
+## 🙏 Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- OpenAI for providing the AI capabilities
+- yt-dlp for YouTube video processing
+- Next.js team for the amazing framework

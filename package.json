@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "screenshot": "node scripts/screenshot.js"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "puppeteer": "^24.4.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
